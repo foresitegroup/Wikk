@@ -4,6 +4,8 @@ font-family: 'Quicksand', sans-serif;
 
 #6D6D6D - dark gray
 #F0532D - red
+#8F7BB5 - purple
+#AB9CC8 - light purple
 */
 
 BODY {
@@ -196,6 +198,107 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   line-height: 1.1em;
 }
 
+.side-title {
+  position: absolute;
+  top: 50px;
+  left: 3.7%;
+}
+
+.side-title H1 {
+  transform: rotate(-90deg) translateX(-100%);
+  transform-origin: top left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.side-title .line {
+  position: absolute;
+  left: 4px;
+  width: 3px;
+  border-radius: 1px;
+}
+
+.home-featured .side-title H1 { color: #AB9CC8; }
+.home-featured .side-title .line { background: #AB9CC8; }
+
+.home-featured { display: flex; position: relative; }
+
+.home-featured .image {
+  width: 34.81%;
+  margin-left: 9.5%;
+  line-height: 0;
+  position: relative;
+}
+
+.home-featured .image #fi {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.home-featured .image #fic {
+  margin-top: 56px;
+  width: 100%;
+  height: auto;
+}
+
+.home-featured .text {
+  margin: 0 0 56px auto;
+  width: 48%;
+  align-self: center;
+  line-height: 1.8em;
+  letter-spacing: 0.03em;
+}
+
+.home-featured .text H2 {
+  margin: 0 0 0.1em;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 342.85%;
+  line-height: 1em;
+}
+
+.home-featured .text H3 {
+  margin: 0 0 0.6em;
+  color: #8F7BB5;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 214.28%;
+  line-height: 1em;
+}
+
+.home-featured .text A:link, .home-featured .text A:visited {
+  display: inline-block;
+  margin-top: 1.8em;
+  border: 5px solid #F0532D;
+  border-radius: 14px;
+  padding: 0.6em 1em;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 128.57%;
+  line-height: 1em;
+}
+
+.home-featured .text A:hover, .home-featured .text A:active {
+  border-color: #8F7BB5;
+  color: #8F7BB5;
+}
+
+
+
 
 
 @media only screen and (max-width: 1100px) {
@@ -212,17 +315,54 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
 
 @media only screen and (max-width: 900px) {
   #hero .site-width DIV { width: 90%; }
+
+  .home-featured .image #fi { height: 500px; width: auto; }
+  .home-featured .text { font-size: 13px; }
 }
 
 @media only screen and (max-width: 800px) {
   /* Small computer or landscape tablet */
   #hero .site-width DIV { width: 100%; padding: 25px 10%; }
+
+  .home-featured .text { font-size: 12px; }
 }
 
 @media only screen and (max-width: 750px) {
   #hero .site-width DIV { padding: 0 13%; font-size: 2.666vw; background-size: auto 93%; }
 
   #hero .site-width DIV H1 { font-size: 200%; }
+  
+  .side-title { top: 37px; left: 0; }
+  .side-title H1 { transform: none; font-size: 14px; }
+  .side-title .line { top: 0.5em; height: 3px; }
+  
+  .home-featured { flex-direction: column; width: 86.68%; }
+
+  .home-featured .image {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+
+  .home-featured .image:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 15px;
+    background: #F0532D;
+    border-radius: 5px;
+  }
+
+  .home-featured .image #fi { height: auto; }
+  .home-featured .image #fic { margin-top: 104px;  width: 55%; }
+
+  .home-featured .text { margin: 2em 0 3em; width: 100%; font-size: 20px; line-height: 1.6em; }
+
+  .home-featured .text H2 { font-size: 240%; }
+  .home-featured .text H3 { font-size: 150%; }
+  .home-featured .text A:link, .home-featured .text A:visited { margin-top: 1.5em; font-size: 4vw; }
 }
 
 @media only screen and (max-width: 600px) {
@@ -306,9 +446,20 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   NAV UL LI UL LI A:first-of-type { padding-top: 0.4em; }
 
   #hero .site-width { height: 500px; }
+
+  .home-featured .side-title H1 { font-size: 2.5vw; white-space: pre-wrap; }
+  .home-featured .side-title .line { top: 0.9em !important; }
+
+  .home-featured .image #fic { width: 70%; }
+
+  .home-featured .text A:link, .home-featured .text A:visited { font-size: 3.8vw; }
 }
 
 @media only screen and (max-width: 480px) {
   /* Phone */
   #hero .site-width DIV { padding: 0 10%; font-size: 3.3vw; background-size: auto 70%; }
+
+  .home-featured .side-title .line { top: 0.7em !important; }
+
+  .home-featured .image #fic { width: 100%; }
 }

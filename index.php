@@ -35,7 +35,7 @@
         800-123-4567
       </div>
     </header>
-    
+
     <input type="checkbox" id="toggle-menu" role="button">
     <label for="toggle-menu"></label>
 
@@ -71,6 +71,59 @@
       </div>
     </div>
 
+    <div class="site-width home-featured">
+      <div class="side-title">
+        <h1>Featured Solution</h1>
+        <div class="line"></div>
+      </div>
+
+      <div class="image">
+        <img src="images/home-featured-circle.png" alt="" id="fic">
+        <img src="images/home-featured.png" alt="" id="fi">
+      </div>
+
+      <div class="text">
+        <h2>The RD-17 Bollard</h2>
+        <h3>with SFA Switch</h3>
+        A robust bollard for everyday use. Removable Bollard for In-ground mounting,  Flat Recessed area for ADA switch and Card Reader, 1 Prep on the angle top for intercom, Welded Angle top to the front.<br>
+
+        <a href="#">See All Standard Bollard Options</a>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('.home-featured .image').height($('.home-featured .image #fi').height()-45);
+
+        $(window).scroll(function() {
+          var theta = $(window).scrollTop() / 5000 % Math.PI;
+          $('#fic').css({ transform: 'rotate(' + theta + 'rad)' });
+        });
+        
+        function TitleLine() {
+          if ($(window).outerWidth() > 750) {
+            $('.home-featured .side-title .line').css({
+              "height": $('.home-featured').height() - $('.home-featured .side-title H1').width()-115,
+              "width": "3px",
+              "top": $('.home-featured .side-title H1').width()+15,
+              "left": "4px"
+            });
+          } else {
+            $('.home-featured .side-title .line').css({
+              "height": "3px",
+              "width": $('.home-featured').width() - $('.home-featured .side-title H1').width()-15,
+              "top": "0.5em",
+              "left": $('.home-featured .side-title H1').width()+15
+            });
+          }
+        }
+
+        TitleLine();
+
+        $(window).resize(function(){ setTimeout(function() { TitleLine(); },100); });
+      });
+    </script>
+
     <div class="site-width">
       <h1>Content (H1)</h1>
 
@@ -81,6 +134,8 @@
       <br>
 
       Bacon sirloin jowl tail pork loin corned beef sausage ribeye rump. Pork chop spare ribs turkey andouille strip steak. Venison pig bresaola ground round. Leberkas frankfurter pastrami prosciutto bresaola jowl.
+
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </div>
 
   </body>
