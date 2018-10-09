@@ -5,7 +5,6 @@ font-family: 'Quicksand', sans-serif;
 #6D6D6D - dark gray
 #F0532D - red
 #8F7BB5 - purple
-#AB9CC8 - light purple
 */
 
 BODY {
@@ -211,6 +210,7 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   top: 0;
   left: 0;
   margin: 0;
+  color: rgba(143,123,181,0.6);
   font-family: 'Days One', sans-serif;
   font-weight: 400;
   font-size: 11px;
@@ -224,12 +224,13 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   left: 4px;
   width: 3px;
   border-radius: 1px;
+  background: rgba(143,123,181,0.6);
 }
 
-.home-featured .side-title H1 { color: #AB9CC8; }
-.home-featured .side-title .line { background: #AB9CC8; }
+#home-testimonials .side-title H1 { color: rgba(255,255,255,0.6); }
+#home-testimonials .side-title .line { background: rgba(255,255,255,0.6); }
 
-.home-featured { display: flex; position: relative; }
+.home-featured .site-width { display: flex; position: relative; }
 
 .home-featured .image {
   width: 34.81%;
@@ -247,11 +248,9 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   transform: translateX(-50%);
 }
 
-.home-featured .image #fic {
-  margin-top: 56px;
-  width: 100%;
-  height: auto;
-}
+.home-featured .image #fic { margin: 56px auto 0; }
+
+.home-featured .image #fic IMG { width: 100%; height: auto; }
 
 .home-featured .text {
   margin: 0 0 56px auto;
@@ -297,6 +296,136 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   color: #8F7BB5;
 }
 
+#home-testimonials {
+  background: #F0532D;
+  color: #FFFFFF;
+}
+
+#home-testimonials .site-width {
+  padding: 60px 0 60px 5%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+#home-testimonials .side-title { top: 42px; }
+
+#home-testimonials .site-width > DIV {
+  width: 66%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.8em;
+  position: relative;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+}
+
+#home-testimonials .site-width > DIV > DIV {
+  margin: 0 9%;
+  padding-top: 0.5em;
+  opacity: 0;
+  display: none;
+}
+
+#home-testimonials .site-width > DIV > DIV.active { display: block; }
+
+#home-testimonials .site-width > DIV > DIV SPAN {
+  font-family: 'Days One', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+#pl {
+  position: absolute;
+  top: 0;
+  right: 52%;
+  height: 100%;
+  width: auto;
+  opacity: 0.25;
+}
+
+#pr {
+  position: absolute;
+  top: 0;
+  left: 52%;
+  height: 100%;
+  width: auto;
+  opacity: 0.25;
+}
+
+#home-blog { margin-top: 8px; }
+
+#home-blog .site-width { position: relative; }
+
+#blog-tiles {
+  display: flex;
+  justify-content: flex-end;
+  padding: 54px 0 46px;
+}
+
+#blog-tiles > A {
+  width: 28.33%;
+  margin-left: 3.25%;
+  box-shadow: 0 0 25px 0 rgba(0,0,0,0.2);
+  border-radius: 14px;
+  box-sizing: border-box;
+  padding: 2.2em 2.2em 3em;
+  color: #4A4A4A;
+  font-size: 12px;
+}
+
+#blog-tiles > A:hover, #blog-tiles > A:active {
+  box-shadow: 0 0 25px 0 rgba(121,48,172,0.4);
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+
+#blog-tiles > A:active { box-shadow: 0 0 25px 0 rgba(240,83,45,0.4); }
+
+#blog-tiles > A > DIV {
+  border: 3px solid #D4D4D4;
+  border-radius: 3px;
+  background-position: center center;
+  background-repeat: none;
+  background-size: cover;
+  position: relative;
+}
+
+#blog-tiles > A > DIV:before {
+  content: "";
+  display: block;
+  padding-top: 68.35%;
+}
+
+#blog-tiles > A > DIV:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, rgba(143,123,181,0.55), rgba(240,83,45,0.55));
+}
+
+#blog-tiles > A H5 {
+  margin: 0 0 1.4em;
+  color: #8F7BB5;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 100%;
+  line-height: 1em;
+  letter-spacing: 0.07em;
+}
+
+#blog-tiles > A H4 {
+  margin: 0.75em 0 0.5em;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 150%;
+  line-height: 1.3em;
+}
+
 
 
 
@@ -318,6 +447,8 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
 
   .home-featured .image #fi { height: 500px; width: auto; }
   .home-featured .text { font-size: 13px; }
+
+  #home-testimonials .site-width > DIV { width: 75%; }
 }
 
 @media only screen and (max-width: 800px) {
@@ -325,6 +456,8 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   #hero .site-width DIV { width: 100%; padding: 25px 10%; }
 
   .home-featured .text { font-size: 12px; }
+
+  #home-testimonials .site-width > DIV { width: 90%; }
 }
 
 @media only screen and (max-width: 750px) {
@@ -336,7 +469,7 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   .side-title H1 { transform: none; font-size: 14px; }
   .side-title .line { top: 0.5em; height: 3px; }
   
-  .home-featured { flex-direction: column; width: 86.68%; }
+  .home-featured .site-width { flex-direction: column; width: 86.68%; }
 
   .home-featured .image {
     width: 100%;
@@ -363,6 +496,12 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   .home-featured .text H2 { font-size: 240%; }
   .home-featured .text H3 { font-size: 150%; }
   .home-featured .text A:link, .home-featured .text A:visited { margin-top: 1.5em; font-size: 4vw; }
+
+  #home-testimonials .site-width { padding: 100px 0 60px 0; width: 86.68%; /*width: 90%;*/ }
+
+  #home-testimonials .site-width > DIV { width: 100%; font-size: 20px; line-height: 1.5em; }
+
+  #home-testimonials .site-width > DIV > DIV { margin: 0 8%; }
 }
 
 @media only screen and (max-width: 600px) {
@@ -403,6 +542,7 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
 
   NAV UL {
     position: absolute;
+    z-index: 10000;
     top: 0;
     right: 0;
     width: auto;
@@ -453,6 +593,8 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   .home-featured .image #fic { width: 70%; }
 
   .home-featured .text A:link, .home-featured .text A:visited { font-size: 3.8vw; }
+
+  #home-testimonials .site-width > DIV { min-height: 250px; font-size: 18px; }
 }
 
 @media only screen and (max-width: 480px) {
@@ -460,6 +602,6 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   #hero .site-width DIV { padding: 0 10%; font-size: 3.3vw; background-size: auto 70%; }
 
   .home-featured .side-title .line { top: 0.7em !important; }
-
-  .home-featured .image #fic { width: 100%; }
+  
+  .home-featured .image #fic { width: 100%; overflow: hidden; }
 }

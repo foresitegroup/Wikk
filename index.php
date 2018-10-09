@@ -70,24 +70,93 @@
         </div>
       </div>
     </div>
+    
+    <div class="home-featured">
+      <div class="site-width">
+        <div class="side-title">
+          <h1>Featured Solution</h1>
+          <div class="line"></div>
+        </div>
 
-    <div class="site-width home-featured">
-      <div class="side-title">
-        <h1>Featured Solution</h1>
-        <div class="line"></div>
+        <div class="image">
+          <div id="fic"><img src="images/home-featured-circle.png" alt=""></div>
+          <img src="images/home-featured.png" alt="" id="fi">
+        </div>
+
+        <div class="text">
+          <h2>The RD-17 Bollard</h2>
+          <h3>with SFA Switch</h3>
+          A robust bollard for everyday use. Removable Bollard for In-ground mounting,  Flat Recessed area for ADA switch and Card Reader, 1 Prep on the angle top for intercom, Welded Angle top to the front.<br>
+
+          <a href="#">See All Standard Bollard Options</a>
+        </div>
       </div>
+    </div>
 
-      <div class="image">
-        <img src="images/home-featured-circle.png" alt="" id="fic">
-        <img src="images/home-featured.png" alt="" id="fi">
+    <div id="home-testimonials">
+      <div class="site-width">
+        <span class="side-title">
+          <h1>Testimonials</h1>
+          <div class="line"></div>
+        </span>
+
+        <div>
+          <img src="images/paren-left.svg" alt="" id="pl">
+          <img src="images/paren-right.svg" alt="" id="pr">
+
+          <div>
+            "Wikk has provided us with a wide bredth of accessibility solutions that has not only helped us become a more inclusive environment, but has provided us with peace of mind as well. They are always there to help."<br>
+            <br>
+            <span>- Jane Jones,</span> Business Manager
+          </div>
+
+          <div>
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis tortor quis fringilla placerat. Suspendisse eget eros metus. In in dictum nisi. Praesent venenatis, tortor nec sollicitudin cursus, lectus aliquam mauris, id malesuada enim urna at leo."<br>
+            <br>
+            <span>- John Smith,</span> Doctor
+          </div>
+        </div>
       </div>
+    </div>
 
-      <div class="text">
-        <h2>The RD-17 Bollard</h2>
-        <h3>with SFA Switch</h3>
-        A robust bollard for everyday use. Removable Bollard for In-ground mounting,  Flat Recessed area for ADA switch and Card Reader, 1 Prep on the angle top for intercom, Welded Angle top to the front.<br>
+    <div id="home-blog">
+      <div class="site-width">
+        <div class="side-title">
+          <h1>Innovations / Blogs</h1>
+          <div class="line"></div>
+        </div>
 
-        <a href="#">See All Standard Bollard Options</a>
+        <div id="blog-tiles">
+          <a href="#">
+            <h5>Innovation</h5>
+
+            <div style="background-image: url(https://picsum.photos/640/360);"></div>
+
+            <h4>Wikk Touchless Switch</h4>
+
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis tortor quis fringilla placerat. Suspendisse eget eros metus. In in dictum nisi. Praesent venenatis, tortor nec sollicitudin cursus...
+          </a>
+
+          <a href="#">
+            <h5>Blog</h5>
+
+            <div style="background-image: url(https://picsum.photos/641/361);"></div>
+
+            <h4>Accessibility takes the big stage</h4>
+
+            Praesent venenatis, tortor nec sollicitudin cursus, lectus aliquam mauris, id malesuada enim urna at leo. Ut convallis tortor quis fringilla placerat.
+          </a>
+
+          <a href="#">
+            <h5>Blog</h5>
+
+            <div style="background-image: url(https://picsum.photos/642/362);"></div>
+
+            <h4>Access for everyone</h4>
+
+            Ut convallis tortor quis fringilla placerat. Suspendisse eget eros metus. In in dictum nisi. Praesent venenatis, tortor nec sollicitudin cursus, lectus aliquam mauris, id malesuada enim urna at leo...
+          </a>
+        </div>
       </div>
     </div>
 
@@ -96,24 +165,30 @@
         $('.home-featured .image').height($('.home-featured .image #fi').height()-45);
 
         $(window).scroll(function() {
-          var theta = $(window).scrollTop() / 5000 % Math.PI;
-          $('#fic').css({ transform: 'rotate(' + theta + 'rad)' });
+          var theta = $(window).scrollTop() / 3000 % Math.PI;
+          $('#fic IMG').css({ transform: 'rotate(' + theta + 'rad)' });
         });
-        
+
+        console.log($('#home-blog .side-title H1').width());
+
         function TitleLine() {
           if ($(window).outerWidth() > 750) {
-            $('.home-featured .side-title .line').css({
-              "height": $('.home-featured').height() - $('.home-featured .side-title H1').width()-115,
-              "width": "3px",
-              "top": $('.home-featured .side-title H1').width()+15,
-              "left": "4px"
+            $('.side-title .line').each(function() {
+              $(this).css({
+                "height": $(this).parent().parent().parent().height() - $(this).siblings().width()-115,
+                "width": "3px",
+                "top": $(this).siblings().width()+15,
+                "left": "4px"
+              });
             });
           } else {
-            $('.home-featured .side-title .line').css({
-              "height": "3px",
-              "width": $('.home-featured').width() - $('.home-featured .side-title H1').width()-15,
-              "top": "0.5em",
-              "left": $('.home-featured .side-title H1').width()+15
+            $('.side-title .line').each(function() {
+              $(this).css({
+                "height": "3px",
+                "width": $(this).parent().parent().width() - $(this).siblings().width()-15,
+                "top": "0.5em",
+                "left": $(this).siblings().width()+15
+              });
             });
           }
         }
@@ -121,6 +196,40 @@
         TitleLine();
 
         $(window).resize(function(){ setTimeout(function() { TitleLine(); },100); });
+
+        var ParenTime = 1500;
+        var FadeTime = 1000;
+        var DelayTime = 5000;
+        var CrossFade = 500;
+        var TotalTime = (ParenTime*2) + (FadeTime*2) + DelayTime - (CrossFade*2);
+        var slideIndex = 0;
+
+        function SlideShow() {
+          $("#home-testimonials .site-width DIV DIV").css("display", "none");
+          slideIndex++;
+          if (slideIndex > $("#home-testimonials .site-width DIV DIV").length) slideIndex = 1;
+
+          $("#pl").animate({ left: "0" }, ParenTime);
+          $("#pr").animate({ left: $('#home-testimonials .site-width > DIV').width() - $('#pr').width() }, ParenTime);
+
+          setTimeout(function() {
+          $('#home-testimonials .site-width DIV DIV:nth-of-type('+slideIndex+')').css("display", "block")
+            .animate({ opacity: 1 }, FadeTime)
+            .delay(DelayTime)
+            .animate({ opacity: 0 }, FadeTime);
+          }, ParenTime - CrossFade);
+          
+          setTimeout(function() {
+            $("#pl").animate({ left: ($('#home-testimonials .site-width > DIV').width()*0.48) - $('#pl').width() }, ParenTime);
+            $("#pr").animate({ left: "52%" }, ParenTime);
+          }, DelayTime + (FadeTime*2));
+
+          setTimeout(SlideShow, TotalTime);
+        }
+        
+        SlideShow();
+
+        
       });
     </script>
 
