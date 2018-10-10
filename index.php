@@ -88,7 +88,7 @@
           <h3>with SFA Switch</h3>
           A robust bollard for everyday use. Removable Bollard for In-ground mounting,  Flat Recessed area for ADA switch and Card Reader, 1 Prep on the angle top for intercom, Welded Angle top to the front.<br>
 
-          <a href="#">See All Standard Bollard Options</a>
+          <a href="#" class="button">See All Standard Bollard Options</a>
         </div>
       </div>
     </div>
@@ -130,34 +130,87 @@
           <a href="#">
             <h5>Innovation</h5>
 
-            <div style="background-image: url(https://picsum.photos/640/360);"></div>
+            <div class="image" style="background-image: url(https://picsum.photos/640/360);"></div>
 
             <h4>Wikk Touchless Switch</h4>
 
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis tortor quis fringilla placerat. Suspendisse eget eros metus. In in dictum nisi. Praesent venenatis, tortor nec sollicitudin cursus...
+            <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut convallis tortor quis fringilla placerat. Suspendisse eget eros metus. In in dictum nisi. Praesent venenatis, tortor nec sollicitudin cursus...</div>
           </a>
 
           <a href="#">
             <h5>Blog</h5>
 
-            <div style="background-image: url(https://picsum.photos/641/361);"></div>
+            <div class="image" style="background-image: url(https://picsum.photos/641/361);"></div>
 
             <h4>Accessibility takes the big stage</h4>
 
-            Praesent venenatis, tortor nec sollicitudin cursus, lectus aliquam mauris, id malesuada enim urna at leo. Ut convallis tortor quis fringilla placerat.
+            <div class="text">Praesent venenatis, tortor nec sollicitudin cursus, lectus aliquam mauris, id malesuada enim urna at leo. Ut convallis tortor quis fringilla placerat.</div>
           </a>
 
           <a href="#">
             <h5>Blog</h5>
 
-            <div style="background-image: url(https://picsum.photos/642/362);"></div>
+            <div class="image" style="background-image: url(https://picsum.photos/642/362);"></div>
 
             <h4>Access for everyone</h4>
 
-            Ut convallis tortor quis fringilla placerat. Suspendisse eget eros metus. In in dictum nisi. Praesent venenatis, tortor nec sollicitudin cursus, lectus aliquam mauris, id malesuada enim urna at leo...
+            <div class="text">Ut convallis tortor quis fringilla placerat. Suspendisse eget eros metus. In in dictum nisi. Praesent venenatis, tortor nec sollicitudin cursus, lectus aliquam mauris, id malesuada enim urna at leo...</div>
           </a>
         </div>
       </div>
+    </div>
+    
+    <div id="home-blog-more">
+      <a href="#" class="button">See All Innovations &amp; Blogs</a>
+    </div>
+
+    <div class="site-width prefooter">
+      Ready to Request a Proposal? <a href="#" class="button">Contact Us</a>
+    </div>
+    
+    <footer>
+      <div class="site-width">
+        <img src="images/footer-logo.svg" alt="" id="footer-logo">
+
+        <ul>
+          <li><a href="#">Pro Area</a></li>
+          <li>
+            <a href="#">Blog</a>
+            <ul>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Solutions</a>
+            <ul>
+              <li><a href="#">Bollards</a></li>
+              <li><a href="#">Ingress'r</a></li>
+              <li><a href="#">Switches</a></li>
+              <li><a href="#">Accessories</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">About</a>
+            <ul>
+              <li><a href="#">Innovations</a></li>
+              <li><a href="#">Testimonials</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+            <ul>
+              <li><a href="#">Sales/Service</a></li>
+              <li><a href="#">RFP</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <div id="copyright">
+      &copy <?php echo date("Y"); ?> Wikk Industries
     </div>
 
     <script type="text/javascript">
@@ -228,24 +281,8 @@
         }
         
         SlideShow();
-
-        
       });
     </script>
-
-    <div class="site-width">
-      <h1>Content (H1)</h1>
-
-      Bacon ipsum dolor sit amet sausage bacon biltong, salami drumstick hamburger ham hock. Filet mignon ribeye meatball flank tri-tip tongue boudin, doner pig tenderloin. Beef cow turducken pork belly. Corned beef andouille short loin spare ribs. Short ribs frankfurter pig beef ribs. Sausage salami kielbasa cow jowl. Pork ribeye sirloin sausage bacon ham swine turkey biltong tenderloin boudin beef ribs pig hamburger.<br>
-      <br>
-
-      Pig shankle andouille venison ham frankfurter strip steak ham hock, swine jerky ball tip flank hamburger. Leberkas cow short loin capicola ham hock bresaola. Pig beef ribs salami shankle, ham hock shank flank kielbasa sausage hamburger tenderloin. Salami shankle prosciutto sausage pork chop tri-tip. Short loin shankle tail capicola bresaola chuck drumstick pork belly t-bone shoulder hamburger salami corned beef leberkas meatloaf. Corned beef t-bone drumstick jowl shoulder brisket sirloin meatball turkey.<br>
-      <br>
-
-      Bacon sirloin jowl tail pork loin corned beef sausage ribeye rump. Pork chop spare ribs turkey andouille strip steak. Venison pig bresaola ground round. Leberkas frankfurter pastrami prosciutto bresaola jowl.
-
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    </div>
 
   </body>
 </html>
