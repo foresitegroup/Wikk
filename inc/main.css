@@ -486,6 +486,114 @@ FOOTER UL LI UL LI { margin-left: 0; }
   text-align: center; 
 }
 
+#product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 0;
+  border-bottom: 3px solid #D7D7D7;
+}
+
+#product-header H1 {
+  margin: 0;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 1em;
+  letter-spacing: 0.05em;
+}
+
+#product-header H2 {
+  margin: 0;
+  color: #858689;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1em;
+  letter-spacing: 0.05em;
+}
+
+#product-header H2 SPAN { color: #8F7BB5; }
+
+#product-header .button { font-size: 14px; line-height: 1em; }
+
+#product-header .button:after {
+  content: "\f02f";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 150%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 0.5em;
+}
+
+#product {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em 0;
+}
+
+#tabs {
+  width: 62%;
+}
+
+#tabs INPUT { display: none; }
+
+#tabs LABEL {
+  display: inline-block;
+  box-shadow: 5px -5px 11px -3px rgba(0,0,0,0.1), -5px -5px 11px -3px rgba(0,0,0,0.1);
+  border-radius: 14px 14px 0 0;
+  box-sizing: border-box;
+  padding: 21px 24px 35px;
+  min-width: 167.5px;
+  cursor: pointer;
+  background: #FFFFFF;
+  color: #818285;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  line-height: 1em;
+  text-align: center;
+}
+
+#tab-summary:checked + LABEL,
+#tab-features:checked + LABEL,
+#tab-literature:checked + LABEL {
+  position: relative;
+  z-index: 11;
+  padding: 21px 24px;
+  color: #F0532D;
+}
+
+#tabs > DIV {
+  display: none;
+  box-shadow: 0 0 25px 0 rgba(0,0,0,0.2);
+  border-radius: 14px;
+  box-sizing: border-box;
+  padding: 40px 45px;
+  background: #FFFFFF;
+  position: relative;
+  z-index: 10;
+  top: -14px;
+}
+
+#tabs > DIV#content-summary { border-radius: 0 14px 14px 14px; }
+
+#tab-summary:checked ~ #content-summary,
+#tab-features:checked ~ #content-features,
+#tab-literature:checked ~ #content-literature { display: block; }
+
+#tabs > DIV > DIV {
+  box-sizing: border-box;
+  height: 480px;
+}
+
+
+
+
+
+
+
 
 
 
