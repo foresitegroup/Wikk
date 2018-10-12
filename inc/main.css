@@ -21,13 +21,13 @@ BODY {
 IMG { border: 0; }
 
 A:link, A:visited {
-  color: #0000FF;
+  color: #F0532D;
   text-decoration: none;
   transition: all 0.2s;
 }
 
 A:hover, A:active {
-  color: #F0532D;
+  color: #8F7BB5;
   text-decoration: none;
 }
 
@@ -49,6 +49,26 @@ A.button:hover, A.button:active {
   color: #8F7BB5;
 }
 
+UL {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+UL LI {
+  line-height: 1.5em;
+  padding: 0 0 1em 1em;
+  position: relative;
+}
+
+UL LI:before {
+  content: "\2022";
+  color: #F0532D;
+  position: absolute;
+  top: 0;
+  left: 0.1em;
+}
+
 .site-width {
   width: 1080px;
   margin: 0 auto;
@@ -60,6 +80,8 @@ A.button:hover, A.button:active {
   display: table;
   clear: both;
 }
+
+.redtext { color: #F0532D; }
 
 HEADER {
   display: flex;
@@ -245,6 +267,51 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   background: rgba(143,123,181,0.6);
 }
 
+.sidetitle {
+  transform: rotate(-90deg);
+  transform-origin: bottom right;
+  position: absolute;
+  /*top: calc(56px - 1em);*/
+  top: 56px;
+  right: 95.4%;
+  width: 100%;
+  height: 1em;
+  color: rgba(143,123,181,0.6);
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  text-align: right;
+}
+
+.sidetitle.bottom { text-align: left; }
+
+.sidetitle:before {
+  content: "";
+  position: absolute;
+  top: 42%;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 1px;
+  background: rgba(143,123,181,0.6);
+}
+
+.sidetitle H1 {
+  display: inline-block;
+  margin: 0;
+  padding-left: 1em;
+  background: #FFFFFF;
+  font-weight: inherit;
+  font-size: inherit;
+  white-space: nowrap;
+  position: relative;
+  z-index: 2;
+}
+
+.sidetitle.bottom H1 { padding: 0 1em 0 0; }
+
 #home-testimonials .side-title H1 { color: rgba(255,255,255,0.6); }
 #home-testimonials .side-title .line { background: rgba(255,255,255,0.6); }
 
@@ -311,7 +378,11 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
 
 #home-testimonials .side-title { top: 42px; }
 
-#home-testimonials .site-width > DIV {
+#home-testimonials .sidetitle { top: 42px; padding-left: 14px; }
+#home-testimonials .sidetitle H1 { background: #F0532D; color: rgba(255,255,255,0.6); }
+#home-testimonials .sidetitle:before { background: rgba(255,255,255,0.6); }
+
+#home-testimonials #slides {
   width: 66%;
   margin: 0 auto;
   text-align: center;
@@ -322,16 +393,16 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   align-items: center;
 }
 
-#home-testimonials .site-width > DIV > DIV {
+#home-testimonials #slides > DIV {
   margin: 0 9%;
   padding-top: 0.5em;
   opacity: 0;
   display: none;
 }
 
-#home-testimonials .site-width > DIV > DIV.active { display: block; }
+#home-testimonials #slides > DIV.active { display: block; }
 
-#home-testimonials .site-width > DIV > DIV SPAN {
+#home-testimonials #slides > DIV SPAN {
   font-family: 'Days One', sans-serif;
   letter-spacing: 0.05em;
 }
@@ -534,6 +605,75 @@ FOOTER UL LI UL LI { margin-left: 0; }
   padding: 2em 0;
 }
 
+
+
+#image {
+  outline: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 34%;
+  height: 615px;
+  /*padding-bottom: 15px;*/
+  /*box-sizing: border-box;*/
+  position: relative;
+}
+
+#image .side-title { top: auto; bottom: 0; }
+#image .side-title H1 {
+  transform: rotate(-90deg);
+  /*top: auto;*/
+  bottom: -65px;
+}
+
+#images {
+  outline: 1px solid black;
+  margin-left: 50px;
+  /*margin-bottom: 30px;*/
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  /*justify-content: space-between;*/
+}
+
+#bigimage {
+  outline: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#bigimage IMG {
+  max-width: 90%;
+  max-height: 90%;
+  width: auto;
+  height: auto;
+}
+
+#imagethumbs {
+  outline: 1px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#imagethumbs > DIV {
+  outline: 1px solid purple;
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  font-size: 0;
+  line-height: 1em;
+}
+
+#caption {
+  outline: 1px solid pink;
+  min-height: 50px;
+  padding-top: 30px;
+}
+
 #tabs {
   width: 62%;
 }
@@ -542,11 +682,12 @@ FOOTER UL LI UL LI { margin-left: 0; }
 
 #tabs LABEL {
   display: inline-block;
+  margin-left: -4px;
   box-shadow: 5px -5px 11px -3px rgba(0,0,0,0.1), -5px -5px 11px -3px rgba(0,0,0,0.1);
   border-radius: 14px 14px 0 0;
   box-sizing: border-box;
-  padding: 21px 24px 35px;
-  min-width: 167.5px;
+  padding: 21px 0 35px;
+  width: 25%;
   cursor: pointer;
   background: #FFFFFF;
   color: #818285;
@@ -556,8 +697,11 @@ FOOTER UL LI UL LI { margin-left: 0; }
   text-align: center;
 }
 
+#tabs LABEL:first-of-type { margin-left: 0; }
+
 #tab-summary:checked + LABEL,
 #tab-features:checked + LABEL,
+#tab-options:checked + LABEL,
 #tab-literature:checked + LABEL {
   position: relative;
   z-index: 11;
@@ -578,15 +722,33 @@ FOOTER UL LI UL LI { margin-left: 0; }
 }
 
 #tabs > DIV#content-summary { border-radius: 0 14px 14px 14px; }
+#tabs > DIV#content-literature { border-radius: 14px 0 14px 14px; }
 
 #tab-summary:checked ~ #content-summary,
 #tab-features:checked ~ #content-features,
+#tab-options:checked ~ #content-options,
 #tab-literature:checked ~ #content-literature { display: block; }
 
 #tabs > DIV > DIV {
   box-sizing: border-box;
   height: 480px;
+  font-size: 12px;
+  line-height: 2em;
+  letter-spacing: 0.05em;
 }
+
+#tabs > DIV > DIV H1 {
+  margin: 0 0 0.5em;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1em;
+}
+
+#tabs > DIV > DIV STRONG { color: #F0532D; }
+
+#tabs > DIV > DIV A { text-decoration: underline; }
 
 
 

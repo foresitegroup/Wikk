@@ -31,6 +31,15 @@
                 "left": "4px"
               });
             });
+
+            $('.sidetitle').each(function() {
+              $(this).css({
+                "width": $(this).parent().height()
+              });
+              console.log($('.home-featured').height());
+            });
+
+
           } else {
             $('.side-title .line').each(function() {
               $(this).css({

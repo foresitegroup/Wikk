@@ -18,6 +18,7 @@
 [data-simplebar="init"] .simplebar-scroll-content,
 [data-simplebar="init"] .simplebar-content {
     overflow: scroll;
+    padding-right: 25px !important;
 }
 
 .simplebar-scroll-content {

@@ -11,10 +11,7 @@
 
 <div class="home-featured">
   <div class="site-width">
-    <div class="side-title">
-      <h1>Featured Solution</h1>
-      <div class="line"></div>
-    </div>
+    <div class="sidetitle"><h1>Featured Solution</h1></div>
 
     <div class="image">
       <div id="fic"><img src="images/home-featured-circle.png" alt=""></div>
@@ -33,12 +30,11 @@
 
 <div id="home-testimonials">
   <div class="site-width">
-    <span class="side-title">
-      <h1>Testimonials</h1>
-      <div class="line"></div>
-    </span>
+    <div class="sidetitle"><h1>Testimonials</h1></div>
 
-    <div>
+    <!-- <span class="side-title"><h1>Testimonials</h1><div class="line"></div></span> -->
+
+    <div id="slides">
       <img src="images/paren-left.svg" alt="" id="pl">
       <img src="images/paren-right.svg" alt="" id="pr">
 
@@ -119,22 +115,22 @@
     var slideIndex = 0;
 
     function SlideShow() {
-      $("#home-testimonials .site-width DIV DIV").css("display", "none");
+      $("#slides DIV").css("display", "none");
       slideIndex++;
-      if (slideIndex > $("#home-testimonials .site-width DIV DIV").length) slideIndex = 1;
+      if (slideIndex > $("#slides DIV").length) slideIndex = 1;
 
       $("#pl").animate({ left: "0" }, ParenTime);
-      $("#pr").animate({ left: $('#home-testimonials .site-width > DIV').width() - $('#pr').width() }, ParenTime);
+      $("#pr").animate({ left: $('#slides').width() - $('#pr').width() }, ParenTime);
 
       setTimeout(function() {
-      $('#home-testimonials .site-width DIV DIV:nth-of-type('+slideIndex+')').css("display", "block")
+      $('#slides DIV:nth-of-type('+slideIndex+')').css("display", "block")
         .animate({ opacity: 1 }, FadeTime)
         .delay(DelayTime)
         .animate({ opacity: 0 }, FadeTime);
       }, ParenTime - CrossFade);
       
       setTimeout(function() {
-        $("#pl").animate({ left: ($('#home-testimonials .site-width > DIV').width()*0.48) - $('#pl').width() }, ParenTime);
+        $("#pl").animate({ left: ($('#slides').width()*0.48) - $('#pl').width() }, ParenTime);
         $("#pr").animate({ left: "52%" }, ParenTime);
       }, DelayTime + (FadeTime*2));
 
