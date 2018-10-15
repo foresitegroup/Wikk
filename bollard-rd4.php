@@ -6,7 +6,70 @@ include "header.php";
 <link rel="stylesheet" href="inc/simplebar.css">
 <script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.js"></script>
 
+<script src="inc/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="inc/jquery.fancybox.css">
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    function TitleLineProduct() {
+      if ($(window).outerWidth() > 750) {
+        $('.sidetitle').each(function() {
+          $('#image .sidetitle').css({ "width": $('#images').height() });
+        });
+      }
+    }
+
+    TitleLineProduct();
+
+    $(window).resize(function(){ setTimeout(function() { TitleLineProduct(); },100); });
+
+    function SetActive(target) {
+      $('#caption').html($(target).html());
+
+      $('#bigimage').height($('#tabs').height()-$('#imagethumbs').height()-$('#caption').outerHeight());
+      
+      // Get the active thumbnail background and set it as the main image
+      var bg = $(target).css("background-image");
+      bg = bg.replace(/.*\s?url\([\'\"]?/, '').replace(/[\'\"]?\).*/, '');
+      $('#bigimage').html("<img src=\""+bg+"\" alt=\"\">");
+
+      $('#imagethumbs > DIV').removeClass('active');
+      $(target).addClass('active');
+      
+      var ImgIndex = $(target).index()+1;
+      
+      // Create Fancybox image pop-up
+      var il, ImgLinks = "";
+      for (var i = 1; i <= $('#imagethumbs > DIV').length; ++i) {
+        il = $('#imagethumbs > DIV:nth-of-type('+i+')').css("background-image").replace(/.*\s?url\([\'\"]?/, '').replace(/[\'\"]?\).*/, '');
+        
+        // Need to have all the links with "data-fancybox" listed for the carousel to work
+        ImgLinks += '<a href="'+il+'" data-fancybox="product"';
+        
+        // Copy thumbnail caption to Fancybox caption
+        if ($('#imagethumbs > DIV:nth-of-type('+i+')').html() != '') {
+          var str = $('#imagethumbs > DIV:nth-of-type('+i+')').html().replace(/(['])/g, "\\$1");
+          ImgLinks += " data-caption='"+str+"'";
+        }
+
+        if (ImgIndex == i) ImgLinks += ' class="activeimg"';
+
+        ImgLinks += '><i class="fas fa-search-plus fa-rotate-180"></i></a>';
+      }
+
+      if ($('#imagethumbs > DIV').length == 1) $(target).addClass('singleimg');
+
+      $('.sidetitle H1').html("Image "+ImgIndex+"/"+$('#imagethumbs > DIV').length+ImgLinks);
+      
+      // Set Fancybox options
+      $('[data-fancybox="product"]').fancybox({ infobar: false, buttons: ['close'], loop : true });
+    }
+
+    SetActive('#imagethumbs > DIV:first-of-type');
+
+    $('#imagethumbs > DIV').click(function() { SetActive(this); });
+  });
+</script>
 
 <div class="site-width">
   <div id="product-header">
@@ -20,21 +83,23 @@ include "header.php";
 
   <div id="product">
     <div id="image">
-      <div class="sidetitle bottom">
-        <h1>Placeholderp</h1>
-      </div>
-
-<!--       <div class="side-title">
-        <h1>Placeholder</h1>
-        <div class="line"></div>
-      </div> -->
+      <div class="sidetitle bottom"><h1></h1></div>
 
       <div id="images">
-        <div id="bigimage">yo</div>
+        <div id="bigimage"></div>
 
         <div id="imagethumbs">
-          <div style="background-image: url(images/bollard-rd4.png);">Hola<br>Mundo!</div>
-          <div style="background-image: url(https://picsum.photos/500);"></div>
+          <div style="background-image: url(images/bollard-rd4.png);">
+            <h3>Shown with:</h3>
+            <a href="#">4x4-5 US32D (630) &raquo;</a><br>
+            N4X4S Surface Mount Box for wireless RF transmission
+          </div>
+
+          <div style="background-image: url(https://picsum.photos/500);">
+            <h3>Shown:</h3>
+            <h2>Model 6R-3</h2>
+          </div>
+
           <div style="background-image: url(https://picsum.photos/501);"></div>
           <div style="background-image: url(https://picsum.photos/300/900);"></div>
           <div style="background-image: url(https://picsum.photos/301/901);"></div>
@@ -43,47 +108,8 @@ include "header.php";
         </div>
       </div>
 
-      <div id="caption">
-        The caption
-      </div>
+      <div id="caption"></div>
     </div>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    if ($(window).outerWidth() > 750) {
-      $('#image .side-title .line').css({
-        "height": $('#images').height() - $('#image .side-title H1').width(),
-        "top": "auto",
-        "bottom": $('#image .side-title H1').width() + $('#caption').height()
-      });
-      // console.log($('#image .side-title H1').width());
-    } else {
-    }
-
-    $('#image .sidetitle').css({ "width": $('#images').height()-56, "top": "calc(56px - 1em)" });
-
-    
-    
-    function SetActive(target) {
-      $('#caption').html($(target).html());
-
-      $('#bigimage').height($('#tabs').height()-$('#imagethumbs').height()-$('#caption').outerHeight());
-
-      var bg = $(target).css("background-image");
-      bg = bg.replace(/.*\s?url\([\'\"]?/, '').replace(/[\'\"]?\).*/, '');
-      $('#bigimage').html("<img src=\""+bg+"\" alt=\"\">");
-    }
-
-    SetActive('#imagethumbs > DIV:first-of-type');
-
-    
-
-    $('#imagethumbs > DIV').click(function() {
-      var bg = $(this).css("background-image").replace(/.*\s?url\([\'\"]?/, '').replace(/[\'\"]?\).*/, '');
-      $('#bigimage').html("<img src=\""+bg+"\" alt=\"\">");
-    });
-  });
-</script>
 
     <div id="tabs">
       <input id="tab-summary" type="radio" name="tabs" checked>

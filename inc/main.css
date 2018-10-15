@@ -150,10 +150,13 @@ NAV UL {
 
 NAV UL LI {
   display: inline-block;
+  line-height: 1em;
   padding: 1.55em 2em;
   position: relative;
   z-index: 99;
 }
+
+NAV UL LI:before { content: ""; }
 
 NAV > UL > LI:nth-of-type(3) { padding-right: 0.5em; }
 
@@ -237,42 +240,11 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   line-height: 1.1em;
 }
 
-.side-title {
-  position: absolute;
-  top: 50px;
-  left: 3.7%;
-}
-
-.side-title H1 {
-  transform: rotate(-90deg) translateX(-100%);
-  transform-origin: top left;
-  position: absolute;
-  top: 0;
-  left: 0;
-  margin: 0;
-  color: rgba(143,123,181,0.6);
-  font-family: 'Days One', sans-serif;
-  font-weight: 400;
-  font-size: 11px;
-  line-height: 1em;
-  letter-spacing: 0.1em;
-  white-space: nowrap;
-}
-
-.side-title .line {
-  position: absolute;
-  left: 4px;
-  width: 3px;
-  border-radius: 1px;
-  background: rgba(143,123,181,0.6);
-}
-
 .sidetitle {
   transform: rotate(-90deg);
   transform-origin: bottom right;
   position: absolute;
-  /*top: calc(56px - 1em);*/
-  top: 56px;
+  top: 50px;
   right: 95.4%;
   width: 100%;
   height: 1em;
@@ -312,9 +284,6 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
 
 .sidetitle.bottom H1 { padding: 0 1em 0 0; }
 
-#home-testimonials .side-title H1 { color: rgba(255,255,255,0.6); }
-#home-testimonials .side-title .line { background: rgba(255,255,255,0.6); }
-
 .home-featured .site-width { display: flex; position: relative; }
 
 .home-featured .image {
@@ -322,6 +291,7 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   margin-left: 9.5%;
   line-height: 0;
   position: relative;
+  z-index: 50;
 }
 
 .home-featured .image #fi {
@@ -376,9 +346,7 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
   position: relative;
 }
 
-#home-testimonials .side-title { top: 42px; }
-
-#home-testimonials .sidetitle { top: 42px; padding-left: 14px; }
+#home-testimonials .sidetitle { top: 42px; }
 #home-testimonials .sidetitle H1 { background: #F0532D; color: rgba(255,255,255,0.6); }
 #home-testimonials .sidetitle:before { background: rgba(255,255,255,0.6); }
 
@@ -536,7 +504,8 @@ FOOTER UL {
   list-style-type: none;
 }
 
-FOOTER UL LI { margin-left: 3em; }
+FOOTER UL LI { margin-left: 3em; padding: 0; }
+FOOTER UL LI:before { content: ""; }
 
 FOOTER UL LI A:link, FOOTER UL LI A:visited { color: #444444; display: block; padding: 0.6em 0; }
 FOOTER UL LI A:hover, FOOTER UL LI A:active { color: #F0532D; }
@@ -605,60 +574,72 @@ FOOTER UL LI UL LI { margin-left: 0; }
   padding: 2em 0;
 }
 
-
-
 #image {
-  outline: 1px solid blue;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   width: 34%;
   height: 615px;
-  /*padding-bottom: 15px;*/
-  /*box-sizing: border-box;*/
   position: relative;
 }
 
-#image .side-title { top: auto; bottom: 0; }
-#image .side-title H1 {
-  transform: rotate(-90deg);
-  /*top: auto;*/
-  bottom: -65px;
+#image .sidetitle { top: -1em; }
+
+#image .sidetitle A { visibility: hidden; }
+#image .sidetitle A.activeimg { visibility: visible; }
+
+#image .sidetitle A:link, #image .sidetitle A:visited {
+  position: absolute;
+  top: 50%;
+  right: -2em;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  background: #FFFFFF;
+  color: rgba(143,123,181,0.6);
+  font-size: 200%;
+  padding-right: 1em;
+  box-sizing: border-box;
 }
 
+#image .sidetitle A:hover { color: #F0532D; }
+
 #images {
-  outline: 1px solid black;
   margin-left: 50px;
-  /*margin-bottom: 30px;*/
   display: flex;
   flex-direction: column;
   flex-basis: 100%;
-  /*justify-content: space-between;*/
-}
-
-#bigimage {
-  outline: 1px solid green;
-  display: flex;
-  justify-content: center;
   align-items: center;
 }
 
+#bigimage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80.75%;
+  background: url(../images/product-background.png) no-repeat center center;
+  background-size: contain;
+}
+
 #bigimage IMG {
-  max-width: 90%;
-  max-height: 90%;
+  max-width: 95%;
+  max-height: 95%;
   width: auto;
   height: auto;
 }
 
 #imagethumbs {
-  outline: 1px solid red;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 #imagethumbs > DIV {
-  outline: 1px solid purple;
+  margin: 7px 6px;
+  box-shadow: 0 0 3px 1px rgba(0,0,0,0.2);
+  border-radius: 3px;
+  border: 2px solid #FFFFFF;
+  box-sizing: border-box;
   width: 50px;
   height: 50px;
   background-repeat: no-repeat;
@@ -666,17 +647,55 @@ FOOTER UL LI UL LI { margin-left: 0; }
   background-size: contain;
   font-size: 0;
   line-height: 1em;
+  cursor: pointer;
+}
+
+#imagethumbs > DIV.active,
+#imagethumbs > DIV:hover {
+  box-shadow: 0 0 3px 1px rgba(121,48,172,0.4);
+  -webkit-transform: translateY(-5px);
+  -ms-transform: translateY(-5px);
+  transform: translateY(-5px);
+}
+
+#imagethumbs > DIV.active.singleimg,
+#imagethumbs > DIV.active.singleimg:hover {
+  -webkit-transform: none;
+  -ms-transform: none;
+  transform: none;
+  pointer-events: none;
 }
 
 #caption {
-  outline: 1px solid pink;
   min-height: 50px;
   padding-top: 30px;
+  font-size: 12px;
+  line-height: 1.6em;
 }
 
-#tabs {
-  width: 62%;
+#caption A { text-decoration: underline; }
+
+#caption H2 {
+  margin: 0;
+  color: #939598;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1em;
 }
+
+#caption H3 {
+  margin: 0 0 0.2em;
+  color: #8F7BB5;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1em;
+}
+
+.fancybox-caption H2, .fancybox-caption H3 { margin: 0; }
+
+#tabs { width: 62%; }
 
 #tabs INPUT { display: none; }
 
@@ -784,7 +803,7 @@ FOOTER UL LI UL LI { margin-left: 0; }
   .home-featured .text { font-size: 13px; }
   .home-featured .text .button { font-size: 128%; }
 
-  #home-testimonials .site-width > DIV { width: 75%; }
+  #home-testimonials .site-width #slides { width: 75%; }
 
   FOOTER UL { font-size: 1.4vw; line-height: 1.2em; }
 }
@@ -795,17 +814,16 @@ FOOTER UL LI UL LI { margin-left: 0; }
 
   .home-featured .text { font-size: 12px; }
 
-  #home-testimonials .site-width > DIV { width: 90%; }
+  #home-testimonials .site-width #slides { width: 90%; }
 }
 
 @media only screen and (max-width: 750px) {
   #hero .site-width DIV { padding: 0 13%; font-size: 2.666vw; background-size: auto 93%; }
 
   #hero .site-width DIV H1 { font-size: 200%; }
-  
-  .side-title { top: 37px; left: 0; }
-  .side-title H1 { transform: none; font-size: 14px; }
-  .side-title .line { top: 0.5em; height: 3px; }
+
+  .sidetitle { transform: none; right: 0; font-size: 14px; text-align: left; }
+  .sidetitle H1 { padding: 0 1em 0 0; }
   
   .home-featured .site-width { flex-direction: column; width: 86.68%; }
 
@@ -843,9 +861,9 @@ FOOTER UL LI UL LI { margin-left: 0; }
 
   #home-testimonials .site-width { padding: 100px 0 60px 0; width: 86.68%; }
 
-  #home-testimonials .site-width > DIV { width: 100%; font-size: 20px; line-height: 1.5em; }
+  #home-testimonials .site-width #slides { width: 100%; font-size: 20px; line-height: 1.5em; }
 
-  #home-testimonials .site-width > DIV > DIV { margin: 0 8%; }
+  #home-testimonials .site-width #slides > DIV { margin: 0 8%; }
   
   #home-blog .site-width { width: 86.68%; }
   #blog-tiles { flex-direction: column; }
@@ -963,14 +981,18 @@ FOOTER UL LI UL LI { margin-left: 0; }
 
   #hero .site-width { height: 500px; }
 
-  .home-featured .side-title H1 { font-size: 2.5vw; white-space: pre-wrap; }
-  .home-featured .side-title .line { top: 0.9em !important; }
+  .home-featured .sidetitle H1 {
+    display: table;
+    white-space: pre-wrap;
+    width: 3em;
+    top: -0.5em
+  }
 
   .home-featured .image #fic { width: 70%; }
 
   .home-featured .text .button { font-size: 3.8vw; }
 
-  #home-testimonials .site-width > DIV { min-height: 250px; font-size: 18px; }
+  #home-testimonials .site-width #slides { min-height: 250px; font-size: 18px; }
 
   FOOTER UL { font-size: 4.5vw; }
 }
@@ -979,7 +1001,5 @@ FOOTER UL LI UL LI { margin-left: 0; }
   /* Phone */
   #hero .site-width DIV { padding: 0 10%; font-size: 3.3vw; background-size: auto 70%; }
 
-  .home-featured .side-title .line { top: 0.7em !important; }
-  
   .home-featured .image #fic { width: 100%; overflow: hidden; }
 }

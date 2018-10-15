@@ -23,31 +23,8 @@
 
         function TitleLine() {
           if ($(window).outerWidth() > 750) {
-            $('.side-title .line').each(function() {
-              $(this).css({
-                "height": $(this).parent().parent().parent().height() - $(this).siblings().width()-115,
-                "width": "3px",
-                "top": $(this).siblings().width()+15,
-                "left": "4px"
-              });
-            });
-
             $('.sidetitle').each(function() {
-              $(this).css({
-                "width": $(this).parent().height()
-              });
-              console.log($('.home-featured').height());
-            });
-
-
-          } else {
-            $('.side-title .line').each(function() {
-              $(this).css({
-                "height": "3px",
-                "width": $(this).parent().parent().width() - $(this).siblings().width()-15,
-                "top": "0.5em",
-                "left": $(this).siblings().width()+15
-              });
+              $(this).css({ "width": $(this).parent().parent().height()-115 });
             });
           }
         }

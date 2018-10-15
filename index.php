@@ -14,7 +14,7 @@
     <div class="sidetitle"><h1>Featured Solution</h1></div>
 
     <div class="image">
-      <div id="fic"><img src="images/home-featured-circle.png" alt=""></div>
+      <div id="fic"><img src="images/product-background.png" alt=""></div>
       <img src="images/home-featured.png" alt="" id="fi">
     </div>
 
@@ -31,8 +31,6 @@
 <div id="home-testimonials">
   <div class="site-width">
     <div class="sidetitle"><h1>Testimonials</h1></div>
-
-    <!-- <span class="side-title"><h1>Testimonials</h1><div class="line"></div></span> -->
 
     <div id="slides">
       <img src="images/paren-left.svg" alt="" id="pl">
@@ -55,10 +53,7 @@
 
 <div id="home-blog">
   <div class="site-width">
-    <div class="side-title">
-      <h1>Innovations / Blogs</h1>
-      <div class="line"></div>
-    </div>
+    <div class="sidetitle"><h1>Innovations / Blogs</h1></div>
 
     <div id="blog-tiles">
       <a href="#">
