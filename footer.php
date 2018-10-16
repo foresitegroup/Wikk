@@ -1,5 +1,5 @@
     <div class="site-width prefooter">
-      Ready to Request a Proposal? <a href="#" class="button">Contact Us</a>
+      Ready to Request a Quote? <a href="#" class="button">Contact Us</a>
     </div>
     
     <footer>

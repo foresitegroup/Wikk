@@ -241,6 +241,8 @@ NAV UL LI UL LI A:hover, NAV UL LI UL LI A:active {
 }
 
 .sidetitle {
+  -webkit-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
   transform-origin: bottom right;
   position: absolute;
@@ -595,7 +597,7 @@ FOOTER UL LI UL LI { margin-left: 0; }
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
-  background: #FFFFFF;
+  background: inherit;
   color: rgba(143,123,181,0.6);
   font-size: 200%;
   padding-right: 1em;
@@ -619,13 +621,15 @@ FOOTER UL LI UL LI { margin-left: 0; }
   width: 80.75%;
   background: url(../images/product-background.png) no-repeat center center;
   background-size: contain;
+  box-sizing: border-box;
+  padding: 2.5% 0;
 }
 
 #bigimage IMG {
-  max-width: 95%;
-  max-height: 95%;
-  width: auto;
-  height: auto;
+  max-height: 100% !important;
+  width: auto !important;
+  max-width: 100% !important;
+  height: auto !important;
 }
 
 #imagethumbs {
@@ -641,7 +645,6 @@ FOOTER UL LI UL LI { margin-left: 0; }
   border: 2px solid #FFFFFF;
   box-sizing: border-box;
   width: 50px;
-  height: 50px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
@@ -649,6 +652,8 @@ FOOTER UL LI UL LI { margin-left: 0; }
   line-height: 1em;
   cursor: pointer;
 }
+
+#imagethumbs > DIV:before { content: ""; padding-top: 100%; display: block; }
 
 #imagethumbs > DIV.active,
 #imagethumbs > DIV:hover {
@@ -680,7 +685,7 @@ FOOTER UL LI UL LI { margin-left: 0; }
   color: #939598;
   font-family: 'Days One', sans-serif;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 150%;
   line-height: 1em;
 }
 
@@ -689,7 +694,7 @@ FOOTER UL LI UL LI { margin-left: 0; }
   color: #8F7BB5;
   font-family: 'Days One', sans-serif;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 100%;
   line-height: 1em;
 }
 
@@ -724,7 +729,7 @@ FOOTER UL LI UL LI { margin-left: 0; }
 #tab-literature:checked + LABEL {
   position: relative;
   z-index: 11;
-  padding: 21px 24px;
+  padding: 21px 0;
   color: #F0532D;
 }
 
@@ -761,13 +766,64 @@ FOOTER UL LI UL LI { margin-left: 0; }
   color: #F0532D;
   font-family: 'Days One', sans-serif;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 100%;
   line-height: 1em;
 }
 
 #tabs > DIV > DIV STRONG { color: #F0532D; }
 
 #tabs > DIV > DIV A { text-decoration: underline; }
+
+.product-contact {
+  border-top: 3px solid #D7D7D7;
+  border-bottom: 3px solid #D7D7D7;
+  padding: 1em 0;
+  color: #939598;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1em;
+  letter-spacing: 0.05em;
+  text-align: center;
+}
+
+.product-contact SPAN { color: #9B89BD; }
+
+.related {
+  outline: 1px solid red;
+  margin-top: 45px;
+}
+
+.related H3 {
+  margin: 0 0 0.5em;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1em;
+}
+
+.related .scroller {
+  outline: 1px solid blue;
+  display: flex;
+  margin: 0 auto;
+  width: 94.72%;
+  overflow: auto;
+  padding: 16px 0;
+}
+
+.related .scroller .tile {
+  display: block;
+  min-height: 378px;
+  min-width: 29.91%;
+  margin: 0 1.71%;
+  box-shadow: 0 0 25px 0 rgba(0,0,0,0.2);
+  border-radius: 14px;
+  box-sizing: border-box;
+  padding: 2.2em 2.2em 3em;
+  color: #4A4A4A;
+  font-size: 12px;
+}
 
 
 
@@ -806,6 +862,10 @@ FOOTER UL LI UL LI { margin-left: 0; }
   #home-testimonials .site-width #slides { width: 75%; }
 
   FOOTER UL { font-size: 1.4vw; line-height: 1.2em; }
+
+  #tabs LABEL { font-size: 1.4vw; }
+
+  .product-contact SPAN { display: block; padding: 0.4em 0; }
 }
 
 @media only screen and (max-width: 800px) {
@@ -822,7 +882,15 @@ FOOTER UL LI UL LI { margin-left: 0; }
 
   #hero .site-width DIV H1 { font-size: 200%; }
 
-  .sidetitle { transform: none; right: 0; font-size: 14px; text-align: left; }
+  .sidetitle {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+    right: 0;
+    font-size: 14px;
+    text-align: left;
+  }
+
   .sidetitle H1 { padding: 0 1em 0 0; }
   
   .home-featured .site-width { flex-direction: column; width: 86.68%; }
@@ -875,6 +943,7 @@ FOOTER UL LI UL LI { margin-left: 0; }
   #home-blog-more .button { font-size: 4.15vw; width: 86.68%; box-sizing: border-box; }
 
   .prefooter { width: 86.68%; border-top-width: 10px; font-size: 6.4vw; letter-spacing: 0.15em; }
+
   .prefooter .button {
     margin-top: 1.5em;
     font-size: 4.15vw !important;
@@ -896,6 +965,78 @@ FOOTER UL LI UL LI { margin-left: 0; }
   FOOTER UL LI { margin-left: 0; }
 
   FOOTER UL LI UL { columns: 1; }
+
+  #product { flex-direction: column; }
+
+  #image { width: 100%; margin-bottom: 3em; }
+
+  #image .sidetitle {
+    -webkit-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    right: calc(100% - 1.5em);
+  }
+
+  #image .sidetitle:before { display: none; }
+
+  #image .sidetitle H1 { background: transparent; }
+
+  #images {
+    margin-left: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  #bigimage { width: 48%; height: 100% !important; padding: 0; }
+
+  #imagethumbs { width: 51%; justify-content: flex-end; }
+
+  #imagethumbs > DIV {
+    margin: 3.5% 0 3.5% 7%;
+    width: 26%;
+  }
+
+  #imagethumbs > DIV.active,
+  #imagethumbs > DIV:hover {
+    -webkit-transform: none;
+    -ms-transform: none;
+    transform: none;
+  }
+
+  #caption {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 48%;
+    min-height: 0;
+    padding-top: 0;
+    font-size: 18px;
+    line-height: 1.4em;
+  }
+
+  #tabs { width: 100%; }
+
+  #tabs LABEL { font-size: 2.3vw; }
+
+  #tabs > DIV { padding: 30px 18px 30px 35px; }
+
+  #tabs > DIV > DIV { height: 540px; font-size: 20px; line-height: 1.6em; }
+
+  .product-contact {
+    width: 86.68%;
+    margin: 0 auto;
+    border-top-width: 10px;
+    border-bottom-width: 10px;
+    font-size: 4.8vw;
+  }
+
+  .product-contact .button {
+    margin-top: 0.5em;
+    font-size: 4.15vw !important;
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
 
 @media only screen and (max-width: 600px) {

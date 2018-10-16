@@ -12,11 +12,9 @@ include "header.php";
 <script type="text/javascript">
   $(document).ready(function() {
     function TitleLineProduct() {
-      if ($(window).outerWidth() > 750) {
-        $('.sidetitle').each(function() {
-          $('#image .sidetitle').css({ "width": $('#images').height() });
-        });
-      }
+      $('.sidetitle').each(function() {
+        $('#image .sidetitle').css({ "width": $('#images').height() });
+      });
     }
 
     TitleLineProduct();
@@ -66,6 +64,7 @@ include "header.php";
     }
 
     SetActive('#imagethumbs > DIV:first-of-type');
+    $(window).resize(function(){ setTimeout(function() { SetActive('#imagethumbs > DIV:first-of-type'); },100); });
 
     $('#imagethumbs > DIV').click(function() { SetActive(this); });
   });
@@ -265,8 +264,27 @@ include "header.php";
           <a href="#">Wedge Anchor Installation Instructions &raquo;</a>
         </div>
       </div>
+    </div> <!-- #tabs -->
+  </div> <!-- #product -->
+</div> <!-- .site-width -->
+
+<div class="site-width product-contact">
+  Not quite what you need? <span>Wikk does fully custom work.</span> <a href="contact.php" class="button">Contact Us</a>
+</div>
+
+<div class="site-width">
+  <div class="related">
+    <h3>Related Bollards</h3>
+
+    <div class="scroller">
+      <a href="#" class="tile">1<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum odio diam, hendrerit rutrum ultricies congue, hendrerit et urna. Suspendisse velit metus, fermentum nec dignissim sed, lacinia non metus. Maecenas blandit, orci at porttitor vehicula, lectus mauris euismod eros, vitae malesuada leo eros quis turpis. Etiam varius rutrum quam at pretium.</a>
+      <a href="#" class="tile">2</a>
+      <a href="#" class="tile">3</a>
+      <a href="#" class="tile">4</a>
+      <a href="#" class="tile">5</a>
+      <a href="#" class="tile">6</a>
     </div>
   </div>
-</div>
+</div> <!-- .site-width -->
 
 <?php include "footer.php" ?>
