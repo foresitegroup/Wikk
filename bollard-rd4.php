@@ -9,11 +9,18 @@ include "header.php";
 <script src="inc/jquery.fancybox.min.js"></script>
 <link rel="stylesheet" href="inc/jquery.fancybox.css">
 
+<!-- <script src="inc/jquery.cycle2.min.js"></script>
+<script src="inc/jquery.cycle2.carousel.min.js"></script> -->
+
+<link rel="stylesheet" href="inc/slick.css">
+<script src="inc/slick.min.js"></script>
+
 <script type="text/javascript">
   $(document).ready(function() {
     function TitleLineProduct() {
       $('.sidetitle').each(function() {
         $('#image .sidetitle').css({ "width": $('#images').height() });
+        // $('.related .sidetitle').css({ "width": $('#images').height() });
       });
     }
 
@@ -284,7 +291,49 @@ include "header.php";
       <a href="#" class="tile">5</a>
       <a href="#" class="tile">6</a>
     </div>
+
+    <div class="sidetitle bottom"><h1></h1></div>
+  </div>
+
+  <div class="related">
+    <h3>Related Bollards</h3>
+
+    <div class="scroller">
+      <a href="#" class="tile">1<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum odio diam, hendrerit rutrum ultricies congue, hendrerit et urna. Suspendisse velit metus, fermentum nec dignissim sed, lacinia non metus. Maecenas blandit, orci at porttitor vehicula, lectus mauris euismod eros, vitae malesuada leo eros quis turpis. Etiam varius rutrum quam at pretium.</a>
+      <a href="#" class="tile">2</a>
+      <a href="#" class="tile">3</a>
+      <a href="#" class="tile">4</a>
+      <a href="#" class="tile">5</a>
+      <a href="#" class="tile">6</a>
+    </div>
+
+    <div class="sidetitle bottom"><h1></h1></div>
   </div>
 </div> <!-- .site-width -->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.scroller').each(function (idx, item) {
+      var carouselId = "carousel" + idx;
+      $(this).parent().attr('id', carouselId);
+
+      $(this).slick({
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        appendArrows: $('#'+carouselId+' .scroller')
+      });
+
+      function SlideCounter() {
+        var firsttile = $('#' + carouselId + ' .slick-slide.slick-active').data("slick-index")+1;
+        var lasttile = $('#' + carouselId + ' .slick-slide.slick-active').data("slick-index")+$('#' + carouselId + ' .slick-slide.slick-active').length;
+        $('#' + carouselId + ' .sidetitle H1').text('Showing '+firsttile+'-'+lasttile+'/'+$('#' + carouselId + ' .slick-slide').not($('.slick-cloned')).length);
+      }
+      
+      $('#' + carouselId + ' .slick-prev, #' + carouselId + ' .slick-next').click(function() { SlideCounter(); });
+
+      SlideCounter();
+    });
+  });
+</script>
 
 <?php include "footer.php" ?>

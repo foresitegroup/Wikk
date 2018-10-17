@@ -792,6 +792,7 @@ FOOTER UL LI UL LI { margin-left: 0; }
 .related {
   outline: 1px solid red;
   margin-top: 45px;
+  position: relative;
 }
 
 .related H3 {
@@ -805,24 +806,36 @@ FOOTER UL LI UL LI { margin-left: 0; }
 
 .related .scroller {
   outline: 1px solid blue;
-  display: flex;
   margin: 0 auto;
   width: 94.72%;
-  overflow: auto;
-  padding: 16px 0;
 }
 
-.related .scroller .tile {
-  display: block;
+.related .scroller .slick-slide > DIV {
+  display: flex;
+  padding: 16px;
   min-height: 378px;
-  min-width: 29.91%;
-  margin: 0 1.71%;
+  box-sizing: border-box;
+}
+
+.related .tile {
   box-shadow: 0 0 25px 0 rgba(0,0,0,0.2);
   border-radius: 14px;
   box-sizing: border-box;
   padding: 2.2em 2.2em 3em;
   color: #4A4A4A;
   font-size: 12px;
+}
+
+.related .slick-prev {
+  position: absolute;
+  top: 0;
+  right: 100%;
+}
+
+.related .slick-next {
+  position: absolute;
+  top: 0;
+  left: 100%;
 }
 
 
