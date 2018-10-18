@@ -826,16 +826,36 @@ FOOTER UL LI UL LI { margin-left: 0; }
   font-size: 12px;
 }
 
-.related .slick-prev {
+.related .prev, .related .next {
   position: absolute;
-  top: 0;
-  right: 100%;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 40px;
+  height: 93px;
 }
 
-.related .slick-next {
-  position: absolute;
-  top: 0;
+.fas { font-weight: 300; }
+
+.related .prev {
+  right: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 143 331'%3E%3Cg transform='matrix(1,0,0,1,-93.75,-0.000347249)'%3E%3Cpath d='M233.25,306.001L127.5,165.005L233.25,24.001c4.971-6.628,3.627-16.03-3-21c-6.627-4.971-16.03-3.626-21,3 L96.75,156.005c-4,5.333-4,12.667,0,18l112.5,149.996c2.947,3.93,7.451,6.001,12.012,6.001c3.131,0,6.29-0.978,8.988-3.001 C236.878,322.03,238.221,312.628,233.25,306.001z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center center;
+  fill: red;
+}
+
+.related .next {
   left: 100%;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 143 331' fill='red'%3E%3Cg transform='matrix(1,0,0,1,-93.7508,-0.00018692)'%3E%3Cpath d='M233.252,155.997L120.752,6.001c-4.972-6.628-14.372-7.97-21-3c-6.628,4.971-7.971,14.373-3,21 l105.75,140.997L96.752,306.001c-4.971,6.627-3.627,16.03,3,21c2.698,2.024,5.856,3.001,8.988,3.001 c4.561,0,9.065-2.072,12.012-6.001l112.5-150.004C237.252,168.664,237.252,161.33,233.252,155.997z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center center;
+}
+
+.related .next:hover {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 143 331' fill='green'%3E%3Cg transform='matrix(1,0,0,1,-93.7508,-0.00018692)'%3E%3Cpath d='M233.252,155.997L120.752,6.001c-4.972-6.628-14.372-7.97-21-3c-6.628,4.971-7.971,14.373-3,21 l105.75,140.997L96.752,306.001c-4.971,6.627-3.627,16.03,3,21c2.698,2.024,5.856,3.001,8.988,3.001 c4.561,0,9.065-2.072,12.012-6.001l112.5-150.004C237.252,168.664,237.252,161.33,233.252,155.997z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center center;
+}
+
+
+.related .prev.slick-disabled, .related .next.slick-disabled {
+  display: none !important;
 }
 
 
