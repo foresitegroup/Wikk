@@ -790,10 +790,11 @@ FOOTER UL LI UL LI { margin-left: 0; }
 .product-contact SPAN { color: #9B89BD; }
 
 .related {
-  outline: 1px solid red;
   margin-top: 45px;
   position: relative;
 }
+
+.related .sidetitle { right: 98.8%; }
 
 .related H3 {
   margin: 0 0 0.5em;
@@ -805,26 +806,86 @@ FOOTER UL LI UL LI { margin-left: 0; }
 }
 
 .related .scroller {
-  outline: 1px solid blue;
   margin: 0 auto;
   width: 94.72%;
 }
 
+.related .scroller .slick-list,
+.related .scroller .slick-track,
+.related .scroller .slick-slide { display: flex; }
+
 .related .scroller .slick-slide > DIV {
   display: flex;
   padding: 16px;
-  min-height: 378px;
+  width: 100%;
+  min-height: 410px;
   box-sizing: border-box;
 }
 
+.related.available .scroller .slick-slide > DIV { min-height: 292px; }
+
 .related .tile {
+  display: flex !important;
+  justify-content: space-between;
   box-shadow: 0 0 25px 0 rgba(0,0,0,0.2);
+  outline: none;
   border-radius: 14px;
   box-sizing: border-box;
   padding: 2.2em 2.2em 3em;
   color: #4A4A4A;
   font-size: 12px;
 }
+
+.related.available .tile { display: block !important; }
+
+.related .tile:hover { box-shadow: 0 0 25px 0 rgba(121,48,172,0.4); }
+
+.related.available .tile .top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.related .tile .image {
+  width: 32%;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: contain;
+}
+
+.related.available .tile .image { width: 34%; }
+.related.available .tile .image:before { content: ""; display: block; padding-top: 125%; }
+
+.related .tile .text {
+  width: 62.5%;
+  align-self: center;
+}
+
+.related.available .tile .text {
+  margin-top: 1.5em;
+  width: 100%;
+  font-size: 108.33%;
+  line-height: 1.8em;
+}
+
+.related .tile H1, .related .tile H2, .related .tile H3 {
+  margin: 0;
+  color: #F0532D;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+}
+
+.related .tile H1 { font-size: 333.33%; }
+.related .tile H2 { font-size: 116.66%; }
+.related .tile H3 {
+  margin: 0.4em 0 1.5em;
+  color: #8F7BB5;
+  font-size: 83.33%;
+}
+
+.related.available .tile H1 { width: 58%; font-size: 133.33%; align-self: center; }
+.related.available .tile H3 { margin: 1.5em 0 0; }
 
 .related .prev, .related .next {
   position: absolute;
@@ -834,29 +895,18 @@ FOOTER UL LI UL LI { margin-left: 0; }
   transform: translateY(-50%);
   width: 40px;
   height: 93px;
+  fill: #F0532D;
+  z-index: 20;
 }
 
-.fas { font-weight: 300; }
-
-.related .prev {
-  right: 100%;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 143 331'%3E%3Cg transform='matrix(1,0,0,1,-93.75,-0.000347249)'%3E%3Cpath d='M233.25,306.001L127.5,165.005L233.25,24.001c4.971-6.628,3.627-16.03-3-21c-6.627-4.971-16.03-3.626-21,3 L96.75,156.005c-4,5.333-4,12.667,0,18l112.5,149.996c2.947,3.93,7.451,6.001,12.012,6.001c3.131,0,6.29-0.978,8.988-3.001 C236.878,322.03,238.221,312.628,233.25,306.001z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center center;
-  fill: red;
-}
-
-.related .next {
-  left: 100%;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 143 331' fill='red'%3E%3Cg transform='matrix(1,0,0,1,-93.7508,-0.00018692)'%3E%3Cpath d='M233.252,155.997L120.752,6.001c-4.972-6.628-14.372-7.97-21-3c-6.628,4.971-7.971,14.373-3,21 l105.75,140.997L96.752,306.001c-4.971,6.627-3.627,16.03,3,21c2.698,2.024,5.856,3.001,8.988,3.001 c4.561,0,9.065-2.072,12.012-6.001l112.5-150.004C237.252,168.664,237.252,161.33,233.252,155.997z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center center;
-}
-
-.related .next:hover {
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 143 331' fill='green'%3E%3Cg transform='matrix(1,0,0,1,-93.7508,-0.00018692)'%3E%3Cpath d='M233.252,155.997L120.752,6.001c-4.972-6.628-14.372-7.97-21-3c-6.628,4.971-7.971,14.373-3,21 l105.75,140.997L96.752,306.001c-4.971,6.627-3.627,16.03,3,21c2.698,2.024,5.856,3.001,8.988,3.001 c4.561,0,9.065-2.072,12.012-6.001l112.5-150.004C237.252,168.664,237.252,161.33,233.252,155.997z'/%3E%3C/g%3E%3C/svg%3E") no-repeat center center;
-}
-
+.related .prev { right: 100%; }
+.related .next { left: 100%; }
 
 .related .prev.slick-disabled, .related .next.slick-disabled {
   display: none !important;
 }
+
+.related .prev:hover, .related .next:hover { fill: #8F7BB5; }
 
 
 

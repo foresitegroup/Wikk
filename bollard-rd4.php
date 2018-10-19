@@ -12,11 +12,42 @@ include "header.php";
 <link rel="stylesheet" href="inc/slick.css">
 <script src="inc/slick.min.js"></script>
 
+<script src="inc/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="inc/jquery.modal.css" />
+
 <script type="text/javascript">
   $(document).ready(function() {
+    $('.scroller').each(function (idx, item) {
+      var carouselId = "carousel" + idx;
+      $(this).parent().attr('id', carouselId);
+
+      $(this).slick({
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        appendArrows: $('#'+carouselId+' .scroller'),
+        prevArrow: '<a href="#" class="prev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 143 331"><path d="M139.5 306L33.75 165.006 139.5 24c4.971-6.628 3.627-16.03-3-21-6.627-4.971-16.03-3.626-21 3L3 156.005a15 15 0 0 0 0 18L115.5 324a14.975 14.975 0 0 0 12.012 6c3.131 0 6.29-.977 8.988-3 6.628-4.971 7.971-14.373 3-21z"/></svg></a>',
+        nextArrow: '<a href="#" class="next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 143 331"><path d="M139.501 155.997L27.001 6c-4.972-6.628-14.372-7.97-21-3s-7.97 14.373-3 21l105.75 140.997L3.001 306c-4.97 6.627-3.627 16.03 3 21a14.93 14.93 0 0 0 8.988 3c4.561 0 9.065-2.071 12.012-6l112.5-150.004a15 15 0 0 0 0-18z"/></svg></a>',
+        infinite: false
+      });
+
+      function SlideCounter() {
+        var firsttile = $('#' + carouselId + ' .slick-slide.slick-active').data("slick-index")+1;
+        var lasttile = $('#' + carouselId + ' .slick-slide.slick-active').data("slick-index")+$('#' + carouselId + ' .slick-slide.slick-active').length;
+        $('#' + carouselId + ' .sidetitle H1').text('Showing '+firsttile+'-'+lasttile+'/'+$('#' + carouselId + ' .slick-slide').not($('.slick-cloned')).length);
+      }
+
+      $('#' + carouselId + ' .slick-prev, #' + carouselId + ' .slick-next').click(function() { SlideCounter(); });
+
+      SlideCounter();
+    });
+
     function TitleLineProduct() {
       $('.sidetitle').each(function() {
         $('#image .sidetitle').css({ "width": $('#images').height() });
+      });
+
+      $('[id^="carousel"').each(function() {
+        $(this).find('.sidetitle').css({ "width": $(this).find('.scroller').height()-50 });
       });
     }
 
@@ -28,7 +59,7 @@ include "header.php";
       $('#caption').html($(target).html());
 
       $('#bigimage').height($('#tabs').height()-$('#imagethumbs').height()-$('#caption').outerHeight());
-      
+
       // Get the active thumbnail background and set it as the main image
       var bg = $(target).css("background-image");
       bg = bg.replace(/.*\s?url\([\'\"]?/, '').replace(/[\'\"]?\).*/, '');
@@ -36,17 +67,17 @@ include "header.php";
 
       $('#imagethumbs > DIV').removeClass('active');
       $(target).addClass('active');
-      
+
       var ImgIndex = $(target).index()+1;
-      
+
       // Create Fancybox image pop-up
       var il, ImgLinks = "";
       for (var i = 1; i <= $('#imagethumbs > DIV').length; ++i) {
         il = $('#imagethumbs > DIV:nth-of-type('+i+')').css("background-image").replace(/.*\s?url\([\'\"]?/, '').replace(/[\'\"]?\).*/, '');
-        
+
         // Need to have all the links with "data-fancybox" listed for the carousel to work
         ImgLinks += '<a href="'+il+'" data-fancybox="product"';
-        
+
         // Copy thumbnail caption to Fancybox caption
         if ($('#imagethumbs > DIV:nth-of-type('+i+')').html() != '') {
           var str = $('#imagethumbs > DIV:nth-of-type('+i+')').html().replace(/(['])/g, "\\$1");
@@ -60,8 +91,8 @@ include "header.php";
 
       if ($('#imagethumbs > DIV').length == 1) $(target).addClass('singleimg');
 
-      $('.sidetitle H1').html("Image "+ImgIndex+"/"+$('#imagethumbs > DIV').length+ImgLinks);
-      
+      $('#image .sidetitle H1').html("Image "+ImgIndex+"/"+$('#imagethumbs > DIV').length+ImgLinks);
+
       // Set Fancybox options
       $('[data-fancybox="product"]').fancybox({ infobar: false, buttons: ['close'], loop : true });
     }
@@ -97,7 +128,7 @@ include "header.php";
             N4X4S Surface Mount Box for wireless RF transmission
           </div>
 
-          <div style="background-image: url(https://picsum.photos/500);">
+<!--           <div style="background-image: url(https://picsum.photos/500);">
             <h3>Shown:</h3>
             <h2>Model 6R-3</h2>
           </div>
@@ -106,7 +137,7 @@ include "header.php";
           <div style="background-image: url(https://picsum.photos/300/900);"></div>
           <div style="background-image: url(https://picsum.photos/301/901);"></div>
           <div style="background-image: url(https://picsum.photos/302/902);"></div>
-          <div style="background-image: url(https://picsum.photos/303/903);"></div>
+          <div style="background-image: url(https://picsum.photos/303/903);"></div> -->
         </div>
       </div>
 
@@ -275,43 +306,57 @@ include "header.php";
   Not quite what you need? <span>Wikk does fully custom work.</span> <a href="contact.php" class="button">Contact Us</a>
 </div>
 
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('.scroller').each(function (idx, item) {
-      var carouselId = "carousel" + idx;
-      $(this).parent().attr('id', carouselId);
-
-      $(this).slick({
-        slidesToShow: 3,
-        slidesToScroll: 3,
-        appendArrows: $('#'+carouselId+' .scroller'),
-        prevArrow: '<a href="#" class="prev"></a>',
-        nextArrow: '<a href="#" class="next"></a>',
-        infinite: false
-      });
-
-      function SlideCounter() {
-        var firsttile = $('#' + carouselId + ' .slick-slide.slick-active').data("slick-index")+1;
-        var lasttile = $('#' + carouselId + ' .slick-slide.slick-active').data("slick-index")+$('#' + carouselId + ' .slick-slide.slick-active').length;
-        $('#' + carouselId + ' .sidetitle H1').text('Showing '+firsttile+'-'+lasttile+'/'+$('#' + carouselId + ' .slick-slide').not($('.slick-cloned')).length);
-      }
-      
-      $('#' + carouselId + ' .slick-prev, #' + carouselId + ' .slick-next').click(function() { SlideCounter(); });
-
-      SlideCounter();
-    });
-  });
-</script>
-
 <div class="site-width">
   <div class="related">
     <h3>Related Bollards</h3>
 
     <div class="scroller">
-      <a href="#" class="tile">1<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum odio diam, hendrerit rutrum ultricies congue, hendrerit et urna. Suspendisse velit metus, fermentum nec dignissim sed, lacinia non metus. Maecenas blandit, orci at porttitor vehicula, lectus mauris euismod eros, vitae malesuada leo eros quis turpis. Etiam varius rutrum quam at pretium.</a>
-      <a href="#" class="tile">2</a>
-      <a href="#" class="tile">3</a>
-      <a href="#" class="tile">4</a>
+      <a href="#" class="tile">
+        <div class="image" style="background-image: url(http://www.wikk.com/RD11BPDSMPREPR36PTBD_lg.jpg);"></div>
+
+        <div class="text">
+          <h2>Bollard</h2>
+          <h1>RD11</h1>
+          <h3>#BPDSMPREP36 PTDB</h3>
+          <ul>
+            <li>6"Rd X48.625" Tall</li>
+            <li>Satin Stainless Steel</li>
+            <li>Surface mounting</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="#" class="tile">
+        <div class="image" style="background-image: url(http://www.wikk.com/RD5BPRSMAINHL32D_lg.jpg);"></div>
+
+        <div class="text">
+          <h2>Bollard</h2>
+          <h1>RD5</h1>
+          <h3>#BPDSMPREP36 PTDB</h3>
+          <ul>
+            <li>6"Rd X48.625" Tall</li>
+            <li>Satin Stainless Steel</li>
+            <li>2 Recess areas</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="#" class="tile">
+        <div class="image" style="background-image: url(http://www.wikk.com/RD10BPDSMPREP36PCCL_lg.jpg);"></div>
+
+        <div class="text">
+          <h2>Bollard</h2>
+          <h1>RD10</h1>
+          <h3>#BPDSMPREP36 PTDB</h3>
+          <ul>
+            <li>6"Rd X48.625" Tall</li>
+            <li>Satin Stainless Steel</li>
+            <li>Surface mount</li>
+          </ul>
+        </div>
+      </a>
+
+      <a href="#" class="tile">4<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum odio diam, hendrerit rutrum ultricies congue, hendrerit et urna. Suspendisse velit metus, fermentum nec dignissim sed, lacinia non metus. Maecenas blandit, orci at porttitor vehicula, lectus mauris euismod eros, vitae malesuada leo eros quis turpis. Etiam varius rutrum quam at pretium.</a>
       <a href="#" class="tile">5</a>
       <a href="#" class="tile">6</a>
     </div>
@@ -319,19 +364,62 @@ include "header.php";
     <div class="sidetitle bottom"><h1></h1></div>
   </div>
 
-  <div class="related">
-    <h3>Related Bollards</h3>
+  <div class="related available">
+    <h3>Available Mounting Options</h3>
 
     <div class="scroller">
-      <a href="#" class="tile">1<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum odio diam, hendrerit rutrum ultricies congue, hendrerit et urna. Suspendisse velit metus, fermentum nec dignissim sed, lacinia non metus. Maecenas blandit, orci at porttitor vehicula, lectus mauris euismod eros, vitae malesuada leo eros quis turpis. Etiam varius rutrum quam at pretium.</a>
-      <a href="#" class="tile">2</a>
-      <a href="#" class="tile">3</a>
-      <a href="#" class="tile">4</a>
+      <a href="#test" class="tile" rel="modal:open">
+        <div class="top">
+          <div class="image" style="background-image: url(http://www.wikk.com/n6rs2.jpg);"></div>
+
+          <h1>N6RS Surface Mount</h1>
+        </div>
+
+        <div class="text">
+          Places the switch and face plate entirely within a protective impact-resistant black thermoplastic enclosure.
+
+          <h3>Hard-wire or Wireless</h3>
+        </div>
+      </a>
+
+      <a href="#" class="tile">
+        <div class="top">
+          <div class="image" style="background-image: url(http://www.wikk.com/n4rf_flush.jpg);"></div>
+
+          <h1>N6RS Flush Mount</h1>
+        </div>
+
+        <div class="text">
+          Same enclosure as the N6RS Surface Mount, but with built-in 7/8" trim ring and mounting bracket.
+
+          <h3>Hard-wire or Wireless</h3>
+        </div>
+      </a>
+
+      <a href="#" class="tile">
+        <div class="top">
+          <div class="image" style="background-image: url(http://www.wikk.com/surf6r.jpg);"></div>
+
+          <h1>SUFR 6R</h1>
+        </div>
+
+        <div class="text">
+          ABS box with aluminum corner-covering adapter plate to present a finished appearance. Features a unique battery change-out.
+
+          <h3>Hard-wire or Wireless</h3>
+        </div>
+      </a>
+
+      <a href="#" class="tile">4<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum odio diam, hendrerit rutrum ultricies congue, hendrerit et urna. Suspendisse velit metus, fermentum nec dignissim sed, lacinia non metus. Maecenas blandit, orci at porttitor vehicula, lectus mauris euismod eros, vitae malesuada leo eros quis turpis. Etiam varius rutrum quam at pretium.</a>
       <a href="#" class="tile">5</a>
       <a href="#" class="tile">6</a>
     </div>
 
     <div class="sidetitle bottom"><h1></h1></div>
+  </div>
+
+  <div id="test" class="modal">
+    MODAL!
   </div>
 </div> <!-- .site-width -->
 
