@@ -1,5 +1,5 @@
 <?php
-$PageTitle = "Bollard RD4";
+$PageTitle = "6\" Round Switches";
 include "header.php";
 include "product-js.php";
 ?>
@@ -196,43 +196,179 @@ include "product-js.php";
 </div>
 
 <div class="site-width">
-  <div class="related">
-    <h3>Related Bollards</h3>
+  <div class="related available">
+    <h3>Available Mounting Options</h3>
 
     <div class="scroller">
-      <a href="#" class="tile">
-        <div class="image" style="background-image: url(http://www.wikk.com/RD11BPDSMPREPR36PTBD_lg.jpg);"></div>
+      <a href="#n6rssurfacemount" class="tile" rel="modal:open">
+        <div class="top">
+          <div class="image" style="background-image: url(http://www.wikk.com/n6rs2.jpg);"></div>
+
+          <h1>N6RS Surface Mount</h1>
+        </div>
 
         <div class="text">
-          <h2>Bollard</h2>
-          <h1>RD11</h1>
-          <h3>#BPDSMPREP36 PTDB</h3>
+          Places the switch and face plate entirely within a protective impact-resistant black thermoplastic enclosure.
+
+          <h3>Hard-wire or Wireless</h3>
         </div>
       </a>
 
-      <a href="#" class="tile">
-        <div class="image" style="background-image: url(http://www.wikk.com/RD5BPRSMAINHL32D_lg.jpg);"></div>
+      <a href="#n6rsflushmount" class="tile" rel="modal:open">
+        <div class="top">
+          <div class="image" style="background-image: url(http://www.wikk.com/n4rf_flush.jpg);"></div>
+
+          <h1>N6RS Flush Mount</h1>
+        </div>
 
         <div class="text">
-          <h2>Bollard</h2>
-          <h1>RD5</h1>
-          <h3>#BPDSMPREP36 PTDB</h3>
+          Same enclosure as the N6RS Surface Mount, but with built-in 7/8" trim ring and mounting bracket.
+
+          <h3>Hard-wire or Wireless</h3>
         </div>
       </a>
 
-      <a href="#" class="tile">
-        <div class="image" style="background-image: url(http://www.wikk.com/RD10BPDSMPREP36PCCL_lg.jpg);"></div>
+      <a href="#sufr6r" class="tile" rel="modal:open">
+        <div class="top">
+          <div class="image" style="background-image: url(http://www.wikk.com/surf6r.jpg);"></div>
+
+          <h1>SUFR 6R</h1>
+        </div>
 
         <div class="text">
-          <h2>Bollard</h2>
-          <h1>RD10</h1>
-          <h3>#BPDSMPREP36 PTDB</h3>
+          ABS box with aluminum corner-covering adapter plate to present a finished appearance. Features a unique battery change-out.
+
+          <h3>Hard-wire or Wireless</h3>
         </div>
       </a>
 
       <a href="#" class="tile">4<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum odio diam, hendrerit rutrum ultricies congue, hendrerit et urna. Suspendisse velit metus, fermentum nec dignissim sed, lacinia non metus. Maecenas blandit, orci at porttitor vehicula, lectus mauris euismod eros, vitae malesuada leo eros quis turpis. Etiam varius rutrum quam at pretium.</a>
       <a href="#" class="tile">5</a>
       <a href="#" class="tile">6</a>
+    </div>
+
+    <div class="sidetitle bottom"><h1></h1></div>
+  </div>
+
+  <div id="n6rssurfacemount" class="modal">
+    <div class="modal-available">
+      <div class="image" style="background-image: url(http://www.wikk.com/n6rs2.jpg);"></div>
+
+      <div class="text">
+        <h1>N6RS Surface Mount</h1>
+        <h2>Mount for 6" Round Switches</h2>
+        <h3>Dimensions: 4 1/2" X 4 1/2" X 1 3/4" O.D. (114 X 114 x 44 mm) 1 5/8" Inside Depth (38 mm)</h3>
+        
+        Surf Sq 4 & 6 BLK black ABS box with aluminum corner-covering adapter plate to present a finished appearance. Features a unique battery change-out compartment. Battery can be exchanged without switch removal. Tamper-resistant: compartment door is held in place by the switch and cannot be removed or lost.<br>
+        <br>
+
+        <h3>Available Hard-wired or Wireless</h3>
+
+        <h4>Literature</h4>
+        <a href="#">SUFR 6R Spec Sheet &raquo;</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="n6rsflushmount" class="modal">
+    <div class="modal-available">
+      <div class="image" style="background-image: url(http://www.wikk.com/n4rf_flush.jpg);"></div>
+
+      <div class="text">
+        <h1>N6RS Flush Mount</h1>
+        <h2>Mount for 6" Round Switches</h2>
+        <h3>Dimensions: 4 1/2" X 4 1/2" X 1 3/4" O.D. (114 X 114 x 44 mm) 1 5/8" Inside Depth (38 mm)</h3>
+        
+        Surf Sq 4 & 6 BLK black ABS box with aluminum corner-covering adapter plate to present a finished appearance. Features a unique battery change-out compartment. Battery can be exchanged without switch removal. Tamper-resistant: compartment door is held in place by the switch and cannot be removed or lost.<br>
+        <br>
+
+        <h3>Available Hard-wired or Wireless</h3>
+
+        <h4>Literature</h4>
+        <a href="#">SUFR 6R Spec Sheet &raquo;</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="sufr6r" class="modal">
+    <div class="modal-available">
+      <div class="image" style="background-image: url(http://www.wikk.com/surf6r.jpg);"></div>
+
+      <div class="text">
+        <h1>SUFR 6R</h1>
+        <h2>Mount for 6" Round Switches</h2>
+        <h3>Dimensions: 4 1/2" X 4 1/2" X 1 3/4" O.D. (114 X 114 x 44 mm) 1 5/8" Inside Depth (38 mm)</h3>
+        
+        Surf Sq 4 & 6 BLK black ABS box with aluminum corner-covering adapter plate to present a finished appearance. Features a unique battery change-out compartment. Battery can be exchanged without switch removal. Tamper-resistant: compartment door is held in place by the switch and cannot be removed or lost.<br>
+        <br>
+
+        <h3>Available Hard-wired or Wireless</h3>
+
+        <h4>Literature</h4>
+        <a href="#">SUFR 6R Spec Sheet &raquo;</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="related available">
+    <h3>Available Accessories</h3>
+
+    <div class="scroller">
+      <a href="#" class="tile">
+        <div class="top">
+          <div class="image" style="background-image: url(http://www.wikk.com/n6rs2.jpg);"></div>
+
+          <h1>N6RS Surface Mount</h1>
+        </div>
+
+        <div class="text">
+          Places the switch and face plate entirely within a protective impact-resistant black thermoplastic enclosure.
+
+          <h3>Hard-wire or Wireless</h3>
+        </div>
+      </a>
+
+      <a href="#" class="tile">
+        <div class="top">
+          <div class="image" style="background-image: url(http://www.wikk.com/n6rs2.jpg);"></div>
+
+          <h1>N6RS Surface Mount</h1>
+        </div>
+
+        <div class="text">
+          Places the switch and face plate entirely within a protective impact-resistant black thermoplastic enclosure.
+
+          <h3>Hard-wire or Wireless</h3>
+        </div>
+      </a>
+
+      <a href="#" class="tile">
+        <div class="top">
+          <div class="image" style="background-image: url(http://www.wikk.com/n6rs2.jpg);"></div>
+
+          <h1>N6RS Surface Mount</h1>
+        </div>
+
+        <div class="text">
+          Places the switch and face plate entirely within a protective impact-resistant black thermoplastic enclosure.
+
+          <h3>Hard-wire or Wireless</h3>
+        </div>
+      </a>
+
+      <a href="#" class="tile">
+        <div class="top">
+          <div class="image" style="background-image: url(http://www.wikk.com/n6rs2.jpg);"></div>
+
+          <h1>N6RS Surface Mount</h1>
+        </div>
+
+        <div class="text">
+          Places the switch and face plate entirely within a protective impact-resistant black thermoplastic enclosure.
+
+          <h3>Hard-wire or Wireless</h3>
+        </div>
+      </a>
     </div>
 
     <div class="sidetitle bottom"><h1></h1></div>

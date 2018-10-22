@@ -11,7 +11,7 @@ BODY {
   margin: 0;
   padding: 0;
   background: #FFFFFF;
-  color: #6D6D6D;
+  color: #4A4A4A;
   font-family: 'Quicksand', sans-serif;
   font-weight: 500;
   font-size: 14px;
@@ -908,6 +908,43 @@ FOOTER UL LI UL LI { margin-left: 0; }
 
 .related .prev:hover, .related .next:hover { fill: #8F7BB5; }
 
+.modal-available {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-available .image {
+  width: 32%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+.modal-available .text {
+  width: 62%;
+  font-size: 12px;
+  line-height: 1.8em;
+}
+
+.modal-available .text H1, .modal-available .text H2,
+.modal-available .text H3, .modal-available .text H4 {
+  margin: 0;
+  font-family: 'Days One', sans-serif;
+  font-weight: 400;
+  line-height: 1em;
+}
+
+.modal-available .text H1 { font-size: 250%; color: #F0532D; }
+.modal-available .text H2 { font-size: 133.33%; color: #818285; }
+.modal-available .text H3 {
+  margin: 0.4em 0 1.5em;
+  color: #8F7BB5;
+  font-size: 91.66%;
+}
+.modal-available .text H4 { margin-bottom: 0.5em; font-size: 91.66%; color: #818285; }
+
+.modal-available .text A { text-decoration: underline; }
+
 
 
 
@@ -949,6 +986,10 @@ FOOTER UL LI UL LI { margin-left: 0; }
   #tabs LABEL { font-size: 1.4vw; }
 
   .product-contact SPAN { display: block; padding: 0.4em 0; }
+
+  .related .tile { font-size: 1.3vw; }
+
+  .related .prev, .related .next { width: 30px; height: 70px; }
 }
 
 @media only screen and (max-width: 800px) {
@@ -1120,6 +1161,22 @@ FOOTER UL LI UL LI { margin-left: 0; }
     width: 100%;
     box-sizing: border-box;
   }
+
+  .related .sidetitle { display: none; }
+
+  .related > H3 { padding-left: 35px; }
+
+  .related .tile { font-size: 1.9vw; }
+
+  .related.available .tile H1 { font-size: 170%; }
+
+  .related .prev { right: 98.5%; }
+  .related .next { left: 98.5%; }
+
+  .modal-available { flex-direction: column-reverse; }
+  .modal-available .image, .modal-available .text { width: 100%; }
+  .modal-available .image { margin-top: 2em; }
+  .modal-available .image:before { content: ""; display: block; padding-top: 100%; }
 }
 
 @media only screen and (max-width: 600px) {
@@ -1219,6 +1276,8 @@ FOOTER UL LI UL LI { margin-left: 0; }
   #home-testimonials .site-width #slides { min-height: 250px; font-size: 18px; }
 
   FOOTER UL { font-size: 4.5vw; }
+
+  .related .prev, .related .next { width: 20px; height: 47px; }
 }
 
 @media only screen and (max-width: 480px) {
@@ -1226,4 +1285,6 @@ FOOTER UL LI UL LI { margin-left: 0; }
   #hero .site-width DIV { padding: 0 10%; font-size: 3.3vw; background-size: auto 70%; }
 
   .home-featured .image #fic { width: 100%; overflow: hidden; }
+
+  .related .tile { font-size: 3vw; }
 }
